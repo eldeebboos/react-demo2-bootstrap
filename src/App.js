@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import MyNavbar from "./components/navbar/navbar";
+import AddUserForm from "./components/users/add-user-form";
+import UserList from "./components/users/user-list";
+import UserListFunc from "./components/users/user-list-func";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <MyNavbar />
+      <div className="container">
+        {/* <UserList />
+        <hr />
+        <h2>Functional Component User List</h2>
+        <UserListFunc /> */}
+        <AddUserForm />
+      </div>
+    </>
   );
 }
 
