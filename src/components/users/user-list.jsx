@@ -69,7 +69,9 @@ class UserList extends React.Component {
         )}
 
         <button
-          onClick={() => this.setState({ isAuthenticated: !this.state.isAuthenticated })}
+          onClick={() =>
+            this.setState({ isAuthenticated: !this.state.isAuthenticated })
+          }
           className="btn btn-primary mt-3"
         >
           Toggle Authentication
