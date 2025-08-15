@@ -7,13 +7,15 @@ import UserDetails from "./components/users/user-details";
 import UserEdit from "./components/users/user-edit";
 import UserListFunc from "./components/users/user-list-func";
 import Home from "./components/home/home";
+import { useSelector } from "react-redux";
 
 function App() {
+  const language = useSelector((state) => state.lang.lang);
   return (
     <>
       <Router>
         <MyNavbar />
-        <div className="container">
+        <div className="container" dir={language === "ar" ? "rtl" : "ltr"}>
           <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/home" exact element={<Home />} />

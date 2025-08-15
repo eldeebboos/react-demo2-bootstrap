@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import axiosInstance from "../../axios-config/axios-config";
+import Loader from "../../shared/components/loader";
+import { useSelector } from "react-redux";
 
 const UserListFunc = (props) => {
+  const language = useSelector((state) => state.lang.lang);
+  const loading = useSelector((state) => state.loading.loading);
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   // const [users, setUsers] = useState([
   //   {
@@ -91,6 +94,8 @@ const UserListFunc = (props) => {
   };
   return (
     <>
+      {loading && <Loader />}
+      {language}
       {isAuthenticated && (
         <div>
           <h2>User List</h2>

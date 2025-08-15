@@ -4,9 +4,19 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import changeLanguage from "../../store/actions/language";
 
 function MyNavbar() {
+  const language = useSelector((state) => state.lang.lang);
+  const dispatch = useDispatch();
+  const handleToggleLanguage = () => {
+    // Dispatch an action to toggle the language
+    // For example, if using Redux:
+
+    dispatch(changeLanguage(language === "en" ? "ar" : "en"));
+  };
   const userName = "Ahmed Eldeeb"; // Example username, can be dynamic
   return (
     <>
@@ -32,6 +42,11 @@ function MyNavbar() {
                 <Link className="nav-link active" to="/">
                   Home
                   <span className="visually-hidden">(current)</span>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/user-list2">
+                  User List Class
                 </Link>
               </li>
               <li className="nav-item">
@@ -90,6 +105,12 @@ function MyNavbar() {
                 Search
               </button>
             </form>
+            <button
+              className="d-flex ms-3 font-weight-bold text-white btn btn-success"
+              onClick={handleToggleLanguage}
+            >
+              language: <strong>{language === "en" ? "AR" : "EN"}</strong>
+            </button>
           </div>
         </div>
       </nav>
